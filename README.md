@@ -1,70 +1,33 @@
-# Getting Started with Create React App
+# React shopping app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The shopping app is a project developed following the guidelines offered by the IBM course “Developing front-end apps with React”.
 
-## Available Scripts
+The shopping app is a web page that calculates the total value of a purchase and changes the currency according to a selected location from a list provided.
 
-In the project directory, you can run:
+The page has a list of predefined items with their prices and allows the user to add or reduce the quantity of a selected item. Once the quantity is modified it calculates the item's price and the cart value. The user can also remove the item from the shopping cart by clicking the icon from the "remove" row.
 
-### `npm start`
+## Run
+To run the shopping app on your desktop, you need to: 
+1. Install [Node.js](https://nodejs.org/en/download).
+2. Clone the repository.
+3. Install all necessary packages. All packages required to be installed are listed in package.json. Run `npm install -s`, to install and save those packages.
+4. Run the server using the following command: `npm start`. 
+5. Finally, open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## App structure
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* src   
+    * components 
+        * CartValue 
+        * ExpenseItem 
+        * ExpenseList 
+        * ItemSelected 
+        * Location
+    * context 
+        * AppContext.js 
 
-### `npm test`
+The shopping app has five components. All of these components will be using redux for state management through AppContext.js. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+In AppContext.js a reducer is created, which is used to update the state, based on the action. 
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+In AppContext.js we are setting the initial state of Expenses and Location. Also, we are creating a provider component, setting up the useReducer hook which will hold the state, and allow us to update the state via dispatch.
